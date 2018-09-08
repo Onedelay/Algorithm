@@ -1,4 +1,4 @@
-package programmers;
+package programmers.level1;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,6 @@ public class FindPrimeNumber {
     }
 
     // 에라토스테네스의 체
-    // 효율성 테스트에서 실패함(87.5점)
     public static int eratos(int n) {
         int answer = 0;
         ArrayList<Boolean> primeList = new ArrayList<>();
@@ -43,7 +42,7 @@ public class FindPrimeNumber {
         for (int i = 2; (i * i) <= n; i++) {
             if (primeList.get(i)) {
                 for (int j = i * i; j <= n; j += i) {
-                    primeList.set(j, false);
+                    if (primeList.get(j)) primeList.set(j, false);
                 }
             }
         }
